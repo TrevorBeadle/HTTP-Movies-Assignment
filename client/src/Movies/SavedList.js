@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
 
 function SavedList({ list }) {
   return (
@@ -18,6 +18,7 @@ function SavedList({ list }) {
       })}
       <div className="home-button">
         <Link to="/">Home</Link>
+        <Link to="/add-movie">Add Movie</Link>
       </div>
     </div>
   );

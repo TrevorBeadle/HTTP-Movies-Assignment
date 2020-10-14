@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import React from "react";
+import { useState } from "react";
 
 const initialValues = {
   title: "",
@@ -10,9 +8,8 @@ const initialValues = {
   stars: "",
 };
 
-export default function UpdateMovie(props) {
+export default function AddMovie({ addMovie }) {
   const [values, setValues] = useState(initialValues);
-  const { id } = useParams();
 
   const onChange = e => {
     setValues({
@@ -23,18 +20,8 @@ export default function UpdateMovie(props) {
 
   const onSubmit = e => {
     e.preventDefault();
-    props.updateMovie(id, values);
+    addMovie(values);
   };
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:5000/api/movies/${id}`)
-      .then(res => {
-        console.log(res.data);
-        setValues({ ...res.data, stars: res.data.stars.join(", ") });
-      })
-      .catch(err => console.log(err));
-  }, []);
 
   return (
     <div className="movie-card">
@@ -67,10 +54,11 @@ export default function UpdateMovie(props) {
         />
 
         <label htmlFor="stars">Stars (separate with commas)</label>
-        <input
-          type="text"
-          id="stars"
+        <textarea
           name="stars"
+          id="stars"
+          cols="30"
+          rows="10"
           value={values.stars}
           onChange={onChange}
         />

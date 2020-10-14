@@ -15,6 +15,17 @@ body {
   margin: 1rem auto;
 }
 
+.movie-card form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.movie-card form input {
+  margin: 0.5rem 0 2rem 0;
+}
+
 .movie-director {
   padding: 4px 0;
   font-size: 0.8rem;
@@ -36,6 +47,10 @@ body {
 
 .saved-list h3 {
   margin-right: 10px;
+}
+
+.saved-list a {
+  margin-right: 1rem;
 }
 
 .saved-movie {
