@@ -11,9 +11,19 @@ body {
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
   padding: 1rem;
-  cursor: pointer;
   position: relative;
   margin: 1rem auto;
+}
+
+.movie-card form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.movie-card form input {
+  margin: 0.5rem 0 2rem 0;
 }
 
 .movie-director {
@@ -27,7 +37,6 @@ body {
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
   padding: 1rem;
-  cursor: pointer;
   position: relative;
   margin: 1rem auto;
   width: 75%;
@@ -38,6 +47,10 @@ body {
 
 .saved-list h3 {
   margin-right: 10px;
+}
+
+.saved-list a {
+  margin-right: 1rem;
 }
 
 .saved-movie {
@@ -60,11 +73,44 @@ body {
   border: 1px solid grey;
   padding: 5px 10px;
   background-color: lightseagreen;
+  cursor: pointer;
 }
+
 .save-button:hover {
   background-color: green;
   color: white;
 }
+
+.update-button {
+  position: absolute;
+  top: 70px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+  cursor: pointer;
+}
+
+.update-button:hover {
+  background-color: green;
+  color: white;
+}
+
+.delete-button {
+  position: absolute;
+  top: 115px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: green;
+  color: white;
+}
+
 
 .home-button {
   padding: 5px 10px;
