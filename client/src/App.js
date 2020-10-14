@@ -22,6 +22,28 @@ const App = () => {
     setSavedList([...savedList, movie]);
   };
 
+  const updateMovie = (id, data) => {
+    axios
+      .put(`http://localhost:5000/api/movies/${id}`, data)
+      .then(res => {
+        console.log(res.data);
+        history.push("/");
+        getMovieList();
+      })
+      .catch(err => console.log(err));
+  };
+
+  const deleteMovie = id => {
+    axios
+      .delete(`http://localhost:5000/api/movies/${id}`)
+      .then(res => {
+        console.log(res);
+        history.push("/");
+        getMovieList();
+      })
+      .catch(err => console.log(err));
+  };
+
   useEffect(() => {
     getMovieList();
   }, []);
@@ -39,7 +61,7 @@ const App = () => {
       </Route>
 
       <Route path="/update-movie/:id">
-        <UpdateMovie history={history} />
+        <UpdateMovie updateMovie={updateMovie} />
       </Route>
     </>
   );

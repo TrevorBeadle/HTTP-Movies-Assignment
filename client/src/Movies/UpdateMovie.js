@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
-export default function UpdateMovie({ history }) {
+export default function UpdateMovie(props) {
   const [values, setValues] = useState({});
   const { id } = useParams();
 
@@ -16,21 +16,13 @@ export default function UpdateMovie({ history }) {
 
   const onSubmit = e => {
     e.preventDefault();
-    axios
-      .put(`http://localhost:5000/api/movies/${id}`, values)
-      .then(res => {
-        console.log(res);
-        history.push(`/movies/${id}`);
-      })
-      .catch(err => console.log(err));
+    props.updateMovie(id, values);
   };
 
   useEffect(() => {
     axios
       .get(`http://localhost:5000/api/movies/${id}`)
-      .then(res => {
-        setValues(res.data);
-      })
+      .then(res => setValues(res.data))
       .catch(err => console.log(err));
   }, []);
 
